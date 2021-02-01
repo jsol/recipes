@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: my_secret_pw_shh
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: devuser
+      MYSQL_PASSWORD: devpass
+    volumes:
+      - ./mysql/:/docker-entrypoint-initdb.d/
+
+    ports:
+      - "9906:3306"
+  web:
+    build: .  
+    container_name: php_web
+    depends_on:
+      - db
+    volumes:
+      - ./php/:/var/www/html/
+    ports:
+      - "8100:80"
+    stdin_open: true
+    tty: true

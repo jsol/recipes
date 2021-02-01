@@ -1,0 +1,19 @@
+span {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: lightgray;
+  margin: 5px;
+  padding: 3px;
+}
+
+#tags {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-family: arial;
+}
+
+.listItem {
+  font-family: arial;
+  font-size: 48px;
+  padding-top: 10px;
+}
